@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_decoration/Home/homePage.dart';
 
 class Bar extends StatefulWidget {
   const Bar({super.key});
@@ -13,7 +14,8 @@ class _BarState extends State<Bar> {
     return  Row( 
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(onPressed: (){}, icon: Icon(Icons.menu_sharp,color: Colors.black,)),
+                IconButton(onPressed: (){
+                                    }, icon: Icon(Icons.menu_sharp,color: Colors.black,)),
                 Row( 
                   children: [ 
                     IconButton(onPressed: (){}, icon: Icon(Icons.notifications_active_outlined,color: Colors.black,)),
