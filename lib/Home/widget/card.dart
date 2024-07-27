@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_decoration/Home/widget/headCard.dart';
 
 class CardHome extends StatefulWidget {
    CardHome(this.title,this.image,{super.key});
@@ -14,7 +15,10 @@ class _CardHomeState extends State<CardHome> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        Navigator.push(context,MaterialPageRoute(builder: (context)=>
+                HeadCard(widget.title,widget.image)));
+      },
       child:Padding(padding: const EdgeInsets.all(10),
       child:   Container( 
         width: 250,

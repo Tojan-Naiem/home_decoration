@@ -8,7 +8,6 @@ import 'package:home_decoration/Home/widget/card.dart';
 import 'package:home_decoration/Home/widget/drawer.dart';
 import 'package:home_decoration/Home/widget/headCardList.dart';
 import 'package:home_decoration/Home/widget/itemCard.dart';
-import 'package:home_decoration/Home/widget/titleList.dart';
 import 'package:home_decoration/Home/widget/titleType.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
@@ -20,8 +19,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-List<Item>list=Item.items;
+
+List<Item>list=Item.popluor;
   
 
     List titles=[
@@ -36,13 +37,13 @@ List<Item>list=Item.items;
       titles[i][1]=false;
       titles[index][1]=true;
 
-      // if(titles[index][0]=='Populor')list=Item.items;
-      // else if(titles[index][0]=='New')list=Item.news;
+      if(titles[index][0]=='Populor')list=Item.popluor;
+      else if(titles[index][0]=='New')list=Item.news;
+      else if(titles[index][0]=='Best Silling')list=Item.bestSilling;
+      
     });
   }
 
-
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +104,8 @@ List<Item>list=Item.items;
             
             ),
             Line(),
-            gridView(),
+              _buildAnimatedGridView()
+
 
 
 
@@ -122,32 +124,27 @@ List<Item>list=Item.items;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ Widget _buildAnimatedGridView() {
+    return AnimatedSwitcher(
+      duration: Duration(milliseconds: 500),
+      child: gridView(),
+      switchInCurve: Curves.easeIn,
+      switchOutCurve: Curves.easeOut,
+    );
+ }
 
 
 
 
  Widget gridView(){
   return  Container(
+      key: ValueKey(list),
+
                 width: 400,
                 height: 2000,
                 child: AnimationLimiter(
                   child: GridView.builder(
-                    itemCount: Item.items.length,
+                    itemCount: list.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, mainAxisSpacing: 50),
                     itemBuilder: (context, index) {
