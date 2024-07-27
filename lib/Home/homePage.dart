@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:home_decoration/Home/accountPage.dart';
+import 'package:home_decoration/ProfilePage/accountPage.dart';
 import 'package:home_decoration/Home/models/HomeComponent.dart';
 import 'package:home_decoration/Home/models/item.dart';
 import 'package:home_decoration/Home/widget/bar.dart';

@@ -102,7 +102,6 @@ Future.delayed(const Duration(seconds: 5), () {
              
              
              
-            //  ('Make every corner of your home special',style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold),)
 
              
              ),
