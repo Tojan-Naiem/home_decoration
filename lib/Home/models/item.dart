@@ -14,6 +14,12 @@ class Item{
     Item('Chair','images/chair.png','4.5','Chair','12\$'),
 
   ];
+// static List<Item>news=[
+//     Item('Table disk lump','images/lump2.png','4.5','Lump','55\$'),
+//     Item('Cute Bed Cover','images/Bed cover.png','4.5','Paint','54\$'),
+//     Item('Inside Swing','images/swing.png','3.5','Plants','70\$'),
+//     Item('Chair','images/chair2.png','4','Chair','90\$'),
 
+//   ];
 
 }

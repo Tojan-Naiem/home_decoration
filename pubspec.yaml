@@ -74,6 +74,18 @@ flutter:
     - images/chair.png
     - images/lump.png
     - images/plant.png
+    # - images/Bed cover.png
+    # - images/cup.png
+    # - images/chair2.png
+    # - images/chair3.png
+    # - images/lump2.png
+    # - images/lump2.png
+    # - images/Pillow.png
+    # - images/plant2.png
+    # - images/swing.png
+    # - images/treasury.png
+    # - images/wiper.png
+    # - images/zina.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
