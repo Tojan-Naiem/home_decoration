@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_decoration/Home/widget/productCard.dart';
 
 class ItemCard extends StatefulWidget {
    ItemCard(this.title,this.image,this.rate,this.type,this.price,{super.key});
@@ -16,7 +17,12 @@ class _ItemCardState extends State<ItemCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector( 
-      onTap: (){},
+      onTap: (){
+        Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductCard(widget.title,widget.image,widget.rate,widget.type,widget.price, )),
+                    );
+      },
       child: Padding ( 
         padding: const EdgeInsets.only(top: 10,left: 10,right: 10),
         child: Container( 
