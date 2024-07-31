@@ -33,29 +33,26 @@ class _ProductCardState extends State<ProductCard> {
       body: Column(
 
         children: [ 
-          Container( 
-            height: h,
-            width: w,
-            decoration: BoxDecoration( 
-              color: const Color.fromARGB(255, 208, 206, 206),
-              
-            ),
-            child: Stack( 
-              children: [ 
-                Positioned(
-                  top: 100, 
-                  left: -100,
-                 
-                   
-                    child:
-                     Image.asset(
-                      widget.image,fit: BoxFit.contain,
-                      )
-                  ),
+          Stack(
+            children:[ Container( 
+              height: h,
+              width: w,
+              decoration: BoxDecoration( 
+                color: const Color.fromARGB(255, 208, 206, 206),
+                
+              ),
+              child: Positioned(
+                top: 100, 
+                left:50,
                
-              ],
+                 
+                  child:
+                   Image.asset(
+                    widget.image,fit: BoxFit.contain,
+                    )
+                ),
             ),
-          )
+        ])
         ],
 
       ),

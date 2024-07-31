@@ -27,6 +27,7 @@ class _CardHomeState extends State<CardHome> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
+            
             image: AssetImage( widget.image!),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(

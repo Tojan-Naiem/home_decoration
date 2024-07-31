@@ -44,9 +44,9 @@ class _ItemCardState extends State<ItemCard> {
            clipBehavior: Clip.none, 
             children: [
               Positioned(
-                top: -60, 
-                left: 5, 
-                right: 30,
+                bottom: 120, 
+                left: 0, 
+                right: 50,
                 child:Image(image: AssetImage(widget.image),fit: BoxFit.cover,)
                  ),
 
@@ -59,6 +59,7 @@ class _ItemCardState extends State<ItemCard> {
                     SizedBox(width: 5),
                     Text(
                       widget.rate.toString(),
+                      
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -70,11 +71,18 @@ class _ItemCardState extends State<ItemCard> {
             Positioned(
                 bottom: 70,
                 left: 15,
-                child: Text(
-                  widget.title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                child: Container(
+                  width: 120,
+                  child: Text(
+                    widget.title,
+                    textAlign: TextAlign.left,
+                        maxLines: 1,
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
               ),
