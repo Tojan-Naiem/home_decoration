@@ -17,8 +17,8 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
-    double h=size.height/2.4;
-    double w=size.width;
+    double? h=size.height/2.4;
+    double? w=size.width;
     return Scaffold(
                   extendBodyBehindAppBar: true,
 
@@ -30,6 +30,15 @@ class _ProductCardState extends State<ProductCard> {
         
       ),
       backgroundColor: Colors.white,
+       floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          focusColor: Color.fromARGB(255, 97, 194, 100),
+          shape: CircleBorder(),
+          backgroundColor: Color.fromARGB(255, 97, 194, 100),
+          child: Icon(
+            Icons.add_shopping_cart,
+            color: Colors.white,
+          )),
       body: Column(
             crossAxisAlignment:  CrossAxisAlignment.start,
         children: [ 
@@ -143,69 +152,120 @@ class _ProductCardState extends State<ProductCard> {
                         ),),
                   )
                    ),
+                    
+        Positioned(
+         top: h*1.1,
+         width: w,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+            
+          
+           
+              Row(
+                children: [
+                    for(int i=0;i<5;i++)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Container( 
+                      width: 25,
+                      height: 25,
+                      child: Icon(Icons.star,color: Colors.amber,),
+                    ),
+                  ),
+                   Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Text(widget.rate,style: TextStyle(color: Colors.amber,fontSize: 19,fontWeight: FontWeight.w500),),
+              )
+                ],
+              ),
+              Row( 
+                children: [ 
+                  Padding(padding: const EdgeInsets.only(right: 10),
+                  child: Text('124 reviews',style: TextStyle(color: Colors.grey),),
+                  ),
+                  Icon(Icons.arrow_forward_ios,color: Colors.grey,size: 15,)
+                ],
+              )
+             
+            ],
+          ),
+        ),
+        Positioned(
+          top: h*1.22,
+          width: w,
+        
+          child: Container( 
+            margin: const EdgeInsets.only(left: 15),
+            width: 300,
+            child: Text( 
+              'Simple & Minilimaziation',
+              style: TextStyle( 
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+           top: h*1.34,
+          width: w,
+          child: Container( 
+            margin: const EdgeInsets.only(left: 15),
+            width: 350,
+            child: Text( 
+              'Crafted with the highest quality materials, this item offers unparalleled performance and style. Perfect for those who demand the best, it combines elegance with functionality to meet all your needs.',
+              style: TextStyle( 
+                color: Colors.grey,
+                fontSize: 15,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+        ),
+
+        Positioned(
+          top: h*1.7,
+          right: 50,
+          child:IconButton( 
+            icon: Icon(Icons.favorite_border_outlined),
+            onPressed: (){},
+          )
+           ),
+
+           Positioned(
+          top: size.height-60,
+          right: 0,
+          left: 0,
+          child:GestureDetector( 
+            onTap: (){},
+            child: Container( 
+              height: 50,
+              width: w/2,
+              margin: const EdgeInsets.only(left:20,right: 100),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 97, 194, 100),
+                borderRadius: BorderRadius.circular(15)
+              
+            ),
+            child: Center(
+              child: Text ( 
+                'Add to Cart'.toUpperCase(),
+                style: TextStyle( 
+                  color: Colors.white,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 15
+                ),
+              ),
+            ),
+          )
+          )
+           ),
             
         ]),
-        const SizedBox(height: 50,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-          
-
-         
-            Row(
-              children: [
-                  for(int i=0;i<5;i++)
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Container( 
-                    width: 25,
-                    height: 25,
-                    child: Icon(Icons.star,color: Colors.amber,),
-                  ),
-                ),
-                 Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Text(widget.rate,style: TextStyle(color: Colors.amber,fontSize: 19,fontWeight: FontWeight.w500),),
-            )
-              ],
-            ),
-            Row( 
-              children: [ 
-                Padding(padding: const EdgeInsets.only(right: 10),
-                child: Text('124 reviews',style: TextStyle(color: Colors.grey),),
-                ),
-                Icon(Icons.arrow_forward_ios,color: Colors.grey,size: 15,)
-              ],
-            )
-           
-          ],
-        ),
-        const SizedBox(height: 30,),
-        Container( 
-          margin: const EdgeInsets.only(left: 15),
-          width: 300,
-          child: Text( 
-            'Simple & Minilimaziation',
-            style: TextStyle( 
-              color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.bold
-            ),
-          ),
-        ),
-        const SizedBox(height: 30,),
-        Container( 
-          margin: const EdgeInsets.only(left: 15),
-          width: 350,
-          child: Text( 
-            'Crafted with the highest quality materials, this item offers unparalleled performance and style. Perfect for those who demand the best, it combines elegance with functionality to meet all your needs.',
-            style: TextStyle( 
-              color: Colors.grey,
-              fontSize: 15,
-              fontWeight: FontWeight.bold
-            ),
-          ),
-        ),
+        
+       
         ],
 
       ),
