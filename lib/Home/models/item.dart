@@ -45,5 +45,9 @@ static List<Item>news=[
 
   ];
 
+  static List<Item>addItem=[
+Item('Chair','images/lump3.png','4','Chair','90\$'),
+  ];
+
 
 }
