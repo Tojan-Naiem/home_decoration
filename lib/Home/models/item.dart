@@ -11,7 +11,7 @@ class Item{
     Item('Table disk lump','images/lump.png','4.5','Lump','12\$'),
     Item('Painting Berry Plants','images/board.png','4.5','Paint','12\$'),
     Item('Decorative Plants','images/plant.png','4.5','Plants','70\$'),
-    Item('Chair','images/chair.png','4.5','Chair','12\$'),
+    Item('Cuiouf','images/chair.png','4.5','Chair','12\$'),
 
   ];
 static List<Item>news=[
@@ -45,9 +45,22 @@ static List<Item>news=[
 
   ];
 
-  static List<Item>addItem=[
-Item('Chair','images/lump3.png','4','Chair','90\$'),
-  ];
+  
+
+
+}
+class ShoppingCart{
+static Map<Item,int> addItem={
+// Item('Chair','images/lump3.png','4','Chair','90\$'):1,
+};
+static void addItemToCart(Item item){
+  if(addItem.containsKey(item)){
+
+      addItem[item] = addItem[item]! + 1;
+  } else {
+    addItem[item] = 1;
+  }
+}
 
 
 }
