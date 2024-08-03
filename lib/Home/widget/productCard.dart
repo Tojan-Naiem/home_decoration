@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:home_decoration/Home/models/item.dart';
 import 'package:home_decoration/Home/widget/myCart.dart';
+import 'package:http/http.dart' as http;
 
 class ProductCard extends StatefulWidget {
   ProductCard(this.title, this.image, this.rate, this.type, this.price,
@@ -32,10 +33,10 @@ class _ProductCardState extends State<ProductCard> {
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          focusColor:const  Color.fromARGB(255, 97, 194, 100),
+          focusColor: const Color.fromARGB(255, 97, 194, 100),
           shape: const CircleBorder(),
           backgroundColor: const Color.fromARGB(255, 97, 194, 100),
-          child:const Icon(
+          child: const Icon(
             Icons.add_shopping_cart,
             color: Colors.white,
           )),
@@ -50,7 +51,7 @@ class _ProductCardState extends State<ProductCard> {
                   Container(
                     height: h,
                     width: w,
-                    decoration:const  BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 243, 240, 240),
                     ),
                   ),
@@ -82,7 +83,7 @@ class _ProductCardState extends State<ProductCard> {
                         softWrap: true,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
-                        style:const TextStyle(
+                        style: const TextStyle(
                             color: Colors.grey,
                             fontSize: 15,
                             fontWeight: FontWeight.w500),
@@ -100,7 +101,7 @@ class _ProductCardState extends State<ProductCard> {
                           softWrap: true,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
-                          style:const TextStyle(
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 25,
                               fontWeight: FontWeight.w500),
@@ -134,7 +135,7 @@ class _ProductCardState extends State<ProductCard> {
                           softWrap: true,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
-                          style:const TextStyle(
+                          style: const TextStyle(
                               color: Color.fromARGB(255, 97, 194, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.w500),
@@ -216,7 +217,7 @@ class _ProductCardState extends State<ProductCard> {
                 margin: const EdgeInsets.only(left: 15),
                 width: 300,
                 height: 50,
-                child:const  Text(
+                child: const Text(
                   'Simple & Minilimaziation',
                   style: TextStyle(
                       color: Colors.black,
@@ -276,9 +277,16 @@ class _ProductCardState extends State<ProductCard> {
                           widget.price,
                         );
 
-  ShoppingCart.addItemToCart(newItem);
-
+                        ShoppingCart.addItemToCart(newItem);
                       });
+                      final url=Uri.parse('https://home-decoration-52a98-default-rtdb.firebaseio.com/shopping-list.json');
+                      http.post(
+                        url,
+                        headers: {
+                          
+                        }
+                        
+                        );
 
                       showModalBottomSheet(
                           backgroundColor: Colors.white,
@@ -289,7 +297,7 @@ class _ProductCardState extends State<ProductCard> {
                             return Container(
                                 height: 400,
                                 width: w,
-                                decoration:const BoxDecoration(
+                                decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(15),
                                         topRight: Radius.circular(15))),
@@ -299,8 +307,8 @@ class _ProductCardState extends State<ProductCard> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Padding(
-                                        padding:  EdgeInsets.only(
-                                            top: 20, left: 20),
+                                        padding:
+                                            EdgeInsets.only(top: 20, left: 20),
                                         child: Text(
                                           'My Cart',
                                           style: TextStyle(
@@ -319,9 +327,11 @@ class _ProductCardState extends State<ProductCard> {
                                                 ShoppingCart.addItem.length,
                                             scrollDirection: Axis.vertical,
                                             itemBuilder: ((context, index) {
-                                                   var entry = ShoppingCart.addItem.entries.elementAt(index);
-          Item item = entry.key;
-          int quantity = entry.value;
+                                              var entry = ShoppingCart
+                                                  .addItem.entries
+                                                  .elementAt(index);
+                                              Item item = entry.key;
+                                              int quantity = entry.value;
 
                                               return Column(
                                                 children: [

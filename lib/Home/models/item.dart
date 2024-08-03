@@ -60,6 +60,7 @@ static void addItemToCart(Item item){
   } else {
     addItem[item] = 1;
   }
+  print(addItem);
 }
 
 
