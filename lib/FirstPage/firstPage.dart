@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:home_decoration/Home/homePage.dart';
+import 'package:home_decoration/SignUpPage/signUpPage.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -123,7 +124,7 @@ Future.delayed(const Duration(seconds: 5), () {
                 child: ElevatedButton(
                   onPressed: (){
                      Navigator.push(context,MaterialPageRoute(builder: (context)=>
-                HomePage()));
+                SignUpPage()));
                   }, 
                    style: ElevatedButton.styleFrom(
                    primary: Colors.white, 

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:home_decoration/Home/models/item.dart';
@@ -268,21 +269,21 @@ class _ProductCardState extends State<ProductCard> {
                           borderRadius: BorderRadius.circular(15)),
                       fixedSize: Size(w / 2, 50),
                     ),
-                    onPressed: ()  {
+                    onPressed: () async {
                       print('Hi');
                       // setState(() {
-                      //   Item newItem = Item(
-                      //     widget.title,
-                      //     widget.image,
-                      //     widget.rate,
-                      //     widget.type,
-                      //     widget.price,
-                      //   );
+                        Item newItem = Item(
+                          widget.title,
+                          widget.image,
+                          widget.rate,
+                          widget.type,
+                          widget.price,
+                        );
 
                       //   ShoppingCart.addItemToCart(newItem);
                       // });
                       final url=Uri.parse('https://home-decoration-52a98-default-rtdb.firebaseio.com/shopping-list.json');
-                      http.post(
+                      await http.post(
                         url,
                         headers: {
                           'Content-type':'application/json'
@@ -297,7 +298,10 @@ class _ProductCardState extends State<ProductCard> {
                         })
                         
                         );
-                        List list=http.get(url);
+                        final response= await http.get(url);
+                        log(response.body);
+                        final Map<String,Map<String,String>>map=json.decode(response.body);
+                       
 
                       showModalBottomSheet(
                           backgroundColor: Colors.white,
