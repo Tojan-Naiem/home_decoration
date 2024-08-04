@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:home_decoration/Home/models/item.dart';
 import 'package:home_decoration/Home/widget/myCart.dart';
@@ -266,27 +268,36 @@ class _ProductCardState extends State<ProductCard> {
                           borderRadius: BorderRadius.circular(15)),
                       fixedSize: Size(w / 2, 50),
                     ),
-                    onPressed: () {
+                    onPressed: ()  {
                       print('Hi');
-                      setState(() {
-                        Item newItem = Item(
-                          widget.title,
-                          widget.image,
-                          widget.rate,
-                          widget.type,
-                          widget.price,
-                        );
+                      // setState(() {
+                      //   Item newItem = Item(
+                      //     widget.title,
+                      //     widget.image,
+                      //     widget.rate,
+                      //     widget.type,
+                      //     widget.price,
+                      //   );
 
-                        ShoppingCart.addItemToCart(newItem);
-                      });
+                      //   ShoppingCart.addItemToCart(newItem);
+                      // });
                       final url=Uri.parse('https://home-decoration-52a98-default-rtdb.firebaseio.com/shopping-list.json');
                       http.post(
                         url,
                         headers: {
-                          
-                        }
+                          'Content-type':'application/json'
+                        },
+                        body: json.encode({
+                          'title':widget.title,
+                          'image':widget.image,
+                          'rate':widget.rate,
+                          'type':widget.type,
+                          'price':widget.price
+
+                        })
                         
                         );
+                        List list=http.get(url);
 
                       showModalBottomSheet(
                           backgroundColor: Colors.white,
